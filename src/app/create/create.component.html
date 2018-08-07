@@ -2,7 +2,7 @@
   create works!
 </p>
 
-<form (ngSubmit)=onSubmit()>
+<form (ngSubmit)=onSubmit() >
 Name<input type="text" name="name" id="name" [(ngModel)]="company.name">
 
 Addrss<input type="text" name="address" id="address"  [(ngModel)]="company.address">
@@ -12,5 +12,6 @@ Addrss<input type="text" name="address" id="address"  [(ngModel)]="company.addre
 </select>
 
 <input type="submit"  />
+<input type="button" (click)="showAll()" value="Click">
 
 </form>

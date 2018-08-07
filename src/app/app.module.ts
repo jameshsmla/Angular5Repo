@@ -8,6 +8,8 @@ import { EditComponent } from './edit/edit.component';
 import { NumberComponent } from './number/number.component';
 import { HeroComponent } from './hero/hero.component';
 import { FormsModule} from '@angular/forms';
+import { MyserviceService } from './myservice.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,9 @@ import { FormsModule} from '@angular/forms';
     HeroComponent
   ],
   imports: [
-    BrowserModule,FormsModule
+    BrowserModule,FormsModule,HttpModule
   ],
-  providers: [],
+  providers: [MyserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

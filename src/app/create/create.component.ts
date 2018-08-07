@@ -14,11 +14,17 @@ export class CreateComponent implements OnInit {
   dropdownValues=["one","two"];
   ngOnInit() {
   }
-
-  company= new Company("","");
+//listOfCompanies=[];
+  company= new Company();
+  sample=null;
   companies=[];
 	onSubmit(){
-    console.log( this.company.name+this.company.address);
-    this.companies.push(this.company);
+    this.sample=null;
+    this.sample=this.company;
+    this.companies.push(this.sample);
+    
+  }
+  showAll(){
+    console.log(this.companies);
   }
 }

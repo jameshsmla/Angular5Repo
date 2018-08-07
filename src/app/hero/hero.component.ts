@@ -1,5 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Hero } from "./hero";
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
@@ -9,21 +11,34 @@ export class HeroComponent implements OnInit {
   constructor() { }
   ngOnInit() {
   }
-  
+  hero=new Hero();
   powers = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
-  model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
-modelList=[];
-submitted = false;
+ // model = new Hero();
+  modelList =[];
+  submitted = false;
+  model1=null;
+  edit(id){
+   // alert();
+    this.hero = new Hero();
+    this.hero.name='df'
+  }
+  getEmpdetailsById(){
 
-onSubmit() { this.submitted = true; 
+  }
+onSubmit(form: any) 
+{ 
 
-this.modelList.push(this.model);
-console.log(this.modelList);
+  
+ // this.model1=heroDetails;
+ console.log(form.value);
+  //this.submitted = false; 
+  this.modelList.push(form.value);
+  console.log(this.modelList);
 }
 
 newHero() 
 {
   console.log("newModel");
-this.model = new Hero(42, '', '');
+ // this.model = new Hero();
 }
 }

@@ -1,24 +1,21 @@
 <div class="container">
   <div [hidden]="submitted">
     <h1>Hero Form</h1>
-    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+
+    <form (ngSubmit)="onSubmit(heroForm)" #heroForm="ngForm">
       <div >
         Name
-        <input type="text"  id="name"
-               required
-               [(ngModel)]="model.name" name="name"
-               >
-       
-      </div>     <div >
+        <input type="text"  id="name" ngModel name="name" [(ngModel)]="hero.name">
+      </div>  
+      <div >
         Alter Ego
-        <input type="text"  id="alterEgo"
-               [(ngModel)]="model.alterEgo" name="alterEgo">
+        <input type="text"  id="alterEgo" ngModel name="alterEgo" [(ngModel)]="hero.alterEgo"> 
       </div>
       <div>
         Hero Power
         <select id="power"
                 required
-                [(ngModel)]="model.power" name="power"
+                ngModel name="power" [(ngModel)]="hero.power"
                >
           <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
         </select>
@@ -26,10 +23,11 @@
  
       <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
       <button type="button" class="btn btn-default" (click)="newHero(); ">New Hero</button>
+      <button type="button" class="btn btn-default" (click)="edit(5)">Edit</button>
     </form>
   </div>
  
-  <div [hidden]="!submitted">
+  <!-- <div [hidden]="!submitted">
     <h2>You submitted the following:</h2>
     <div class="row">
       <div class="col-xs-3">Name</div>
@@ -45,5 +43,5 @@
     </div>
     <br>
     <button class="btn btn-primary" (click)="submitted=false">Edit</button>
-  </div>
+  </div> -->
 </div>
